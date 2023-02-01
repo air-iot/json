@@ -1,0 +1,5 @@
+.idea
+
+handler/handler_schedulebak\.go
+db1/taos/v2/taos.go.bak
+js/packages/node_modules
