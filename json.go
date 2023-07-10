@@ -1,6 +1,7 @@
 package json
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/jinzhu/copier"
@@ -10,7 +11,7 @@ import (
 
 // 定义JSON操作
 var (
-	json          = jsoniter.ConfigCompatibleWithStandardLibrary
+	//json          = jsoniter.ConfigCompatibleWithStandardLibrary
 	Marshal       = json.Marshal
 	Unmarshal     = json.Unmarshal
 	MarshalIndent = json.MarshalIndent
