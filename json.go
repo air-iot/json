@@ -1,6 +1,8 @@
 package json
 
 import (
+	"bytes"
+	"encoding/gob"
 	"encoding/json"
 	"fmt"
 	"reflect"
@@ -128,4 +130,12 @@ func DeepCopyStruct(structure interface{}) interface{} {
 	reflect.Copy(newStructure, structureValue)
 
 	return newStructure.Interface()
+}
+
+func DeepCopyGob(src, dst interface{}) error {
+	var buf bytes.Buffer
+	if err := gob.NewEncoder(&buf).Encode(src); err != nil {
+		return err
+	}
+	return gob.NewDecoder(bytes.NewBuffer(buf.Bytes())).Decode(dst)
 }
